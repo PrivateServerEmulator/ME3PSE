@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dimecfg.xsd">
+    <configFormatVersion>1</configFormatVersion>
+    <fileVersion>1</fileVersion>
+    <games>
+        <game>
+            <index>0</index>
+            <name>Mass Effect 3</name>
+            <pc>
+                <storeId>10285</storeId>
+                <catalogIdRealCurrency>10398</catalogIdRealCurrency>
+                <catalogIdVirtualCurrency>10397</catalogIdVirtualCurrency>
+                <categoryId>13339</categoryId>
+                <groupName>ME3PCContent</groupName>
+                <lockboxURL>https://origin.checkout.ea.com/lockbox-ui/checkout</lockboxURL>
+                <successURL>http://bioware.com</successURL>
+                <failURL>http://bioware.com</failURL>
+                <virtualCurrency>_BW</virtualCurrency>
+            </pc>
+        </game>
+        <primaryGameIndex>0</primaryGameIndex>
+    </games>
+    <content>
+        <consumables>
+<consumable><uniqueId>0x30D40</uniqueId><name>ME3 RePack Silver</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:46192</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:46192</itemId><entitlementTag>ME3_REPACK_SILVER_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x3D090</uniqueId><name>ME3 RePack Silver Premium</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48173</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48173</itemId><entitlementTag>ME3_REPACK_SILVER_PREMIUM_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x493E0</uniqueId><name>ME3 RePack Gold</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:46193</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:46193</itemId><entitlementTag>ME3_REPACK_GOLD_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x55730</uniqueId><name>ME3 RePack Gold Premium</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48177</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48177</itemId><entitlementTag>ME3_REPACK_GOLD_PREMIUM_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x495D4</uniqueId><name>ME3 RePack Gold Jumbo</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48189</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48189</itemId><entitlementTag>ME3_REPACK_GOLD_JUMBO_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x61A80</uniqueId><name>ME3 RePack Platinum</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:46194</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:46194</itemId><entitlementTag>ME3_REPACK_PLATINUM_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x61A82</uniqueId><name>ME3 RePack Platinum Deal 2</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48194</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48194</itemId><entitlementTag>ME3_REPACK_PLATINUM_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x7A120</uniqueId><name>ME3 RePack Supplies</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48196</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48196</itemId><entitlementTag>ME3_REPACK_SUPPLIES_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x7A314</uniqueId><name>ME3 RePack Supplies Jumbo</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48199</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48199</itemId><entitlementTag>ME3_REPACK_SUPPLIES_JUMBO_PACK</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x7A508</uniqueId><name>ME3 RePack Mystery Character</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48201</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48201</itemId><entitlementTag>ME3_REPACK_MYSTERY_CHARACTER</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x7A8F0</uniqueId><name>ME3 RePack Mystery Weapon</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48202</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48202</itemId><entitlementTag>ME3_REPACK_MYSTERY_WEAPON</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x7ACD8</uniqueId><name>ME3 RePack Mystery Mod</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48203</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48203</itemId><entitlementTag>ME3_REPACK_MYSTERY_MOD</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EB12</uniqueId><name>ME3 RePack Resurgence Deal 2</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:48326</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:48326</itemId><entitlementTag>ME3_REPACK_RESURGENCE_01</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EB13</uniqueId><name>ME3 RePack Rebellion</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:49749</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:49749</itemId><entitlementTag>ME3_REPACK_REBELLION</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EB14</uniqueId><name>ME3 RePack Rebellion Deal 1</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:49750</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:49750</itemId><entitlementTag>ME3_REPACK_REBELLION</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EB15</uniqueId><name>ME3 RePack Rebellion Deal 2</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:49751</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:49751</itemId><entitlementTag>ME3_REPACK_REBELLION</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EB74</uniqueId><name>N7 Equipment Pack</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:50162</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:50162</itemId><entitlementTag>ME3_REPACK_N7_EQUIPMENT</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EBD8</uniqueId><name>Arsenal Pack</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:50165</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:50165</itemId><entitlementTag>ME3_REPACK_ARSENAL</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+<consumable><uniqueId>0x9EC3C</uniqueId><name>Reserves Pack</name><gameIndex>0</gameIndex><metaData/><pc><offerId>OFB-MASS:50166</offerId><purchaseable>true</purchaseable><advertise>true</advertise><itemId>OFB-MASS:50166</itemId><entitlementTag>ME3_REPACK_RESERVES</entitlementTag><useVirtualCurrency>true</useVirtualCurrency><groupNameIndex>0</groupNameIndex></pc><dimeVersion>0</dimeVersion></consumable>
+        </consumables>
+    </content>
+</dime>

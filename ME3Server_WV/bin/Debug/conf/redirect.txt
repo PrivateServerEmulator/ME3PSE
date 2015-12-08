@@ -1,0 +1,8 @@
+gosredirector.ea.com
+383933-gosprapp396.ea.com
+gosgvaprod-qos01.ea.com
+gosiadprod-qos01.ea.com
+gossjcprod-qos01.ea.com
+reports.tools.gos.ea.com
+waleu2.tools.gos.ea.com
+me3.goscontent.ea.com

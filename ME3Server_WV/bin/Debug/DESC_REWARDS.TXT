@@ -1,0 +1,60 @@
+# Lines starting with "#" are ignored
+# Format: "number=description", not "      number =    description  ", thank you
+# Use right click on the 'Challenge reward' box to access the menu
+#This one should be obvious (so easy, yet BioWare never gave us this option):
+0=Nothing
+#Separator: any entry with negative values (use different negative values for each separator)
+-1=First Separator
+#Insert non-BW titles here (so they appear at the top)
+#221=Turial Rebel
+#222=Asari Scientist
+#-2=Second Separator
+#Official BioWare titles start here
+#General
+100=Best of the Best (Mass Effect)
+207=Best of the Best (Mass Effect) [alt]
+104=Operator (Squad Elite)
+105=Hardcore (Spectre Mastery)
+106=Lone Wolf (Solo Mastery)
+214=Lone Wolf (Solo Mastery) [alt]
+125=N7 (N7 Mastery)
+213=N7 (N7 Mastery) [alt]
+126=Nomad (Map Mastery)
+127=Biotic God (Biotic Mastery)
+215=Biotic God (Biotic Mastery) [alt]
+128=Mathemagician (Tech Mastery)
+209=Mathemagician (Tech Mastery) [alt1]
+210=Mathemagician (Tech Mastery) [alt2]
+150=Hallowed Hero (Halloween Challenge)
+153=Loyalist (N7 Day Alliance Challenge)
+155=Corsair (Operation Privateer)
+157=Hero of the Last Days (Operation Prophecy)
+219=Heartbreaker (Operation Heartbreaker)
+208=Operation Tribute
+220=Stood Fast, Stood Strong, Stood Together (Operation Lodestar)
+#Aliens
+112=Insurgent (Resurgence Mastery)
+113=Rebel (Rebellion Mastery)
+114=Survivor (Earth Mastery)
+217=Survivor (Earth Mastery) [alt]
+115=Defender (Retaliation Mastery)
+121=Monster (Bloodpack Mastery)
+122=Council Operative (Commando Mastery)
+216=Council Operative (Commando Mastery) [alt]
+123=Machinist (Machine Mastery)
+124=Outsider (Outsider Mastery)
+690=Punisher (Reckoning Mastery)
+#Weapons
+107=Street Sweeper (Shotgun Mastery)
+108=Marksman (Assault Rifle Mastery)
+111=Sniper (Sniper Rifle Mastery)
+110=SMG Mastery (really, BioWare?)
+109=Gun Slinger (Pistol Mastery)
+116=Dog of War (Combat Mastery)
+211=Dog of War (Combat Mastery) [alt1]
+212=Dog of War (Combat Mastery) [alt2]
+117=War Fighter (Cerberus Mastery)
+218=War Fighter (Cerberus Mastery) [alt]
+118=Death Guard (Reaper Mastery)
+119=Cyber Warrior (Geth Mastery)
+120=Collector General (Collector Mastery)

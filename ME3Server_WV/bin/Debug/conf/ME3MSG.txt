@@ -1,0 +1,21 @@
+MSG_1_endDate ; 10:03:2013
+MSG_1_image ; FullTeamPromo.dds
+MSG_1_message ; Check your Challenges window now!
+MSG_1_message_de ; √?berpr√ºfe jetzt dein Herausforderungen-Fenster!
+MSG_1_message_es ; ¬°Comprueba ya tu ventana de desaf√≠os!
+MSG_1_message_fr ; Consultez d√®s maintenant la fen√™tre de d√©fis¬†!
+MSG_1_message_it ; Controlla subito la finestra Sfide!
+MSG_1_message_ja ; „?Å„?£„?¨„?≥„?∏Á?ªÈù¢„??‰ª?„Å?„ÅêÁ¢∫Ë™ç„Å?„??„Å?ÔºÅ
+MSG_1_message_pl ; Sprawd≈∫ okno Wyzwa≈? ju≈º teraz!
+MSG_1_message_ru ; –?–µ—?–µ–π–¥–∏—?–µ –≤ –æ–∫–Ω–æ –∏—Å–ø—?—?–∞–Ω–∏–π!
+MSG_1_priority ; 201
+MSG_1_title ; New Weekend Challenge Available
+MSG_1_title_de ; Neue Wochenendherausforderung verf√ºgbar
+MSG_1_title_es ; Disponible nuevo desaf√≠o de fin de semana
+MSG_1_title_fr ; Un nouveau d√©fi du week-end est disponible
+MSG_1_title_it ; Nuova sfida Weekend disponibile
+MSG_1_title_ja ; „?¶„?£„?º„?Ø„?®„?≥„?? „?Å„?£„?¨„?≥„?∏„Å?Â?©Á?®ÂèØË?Ω
+MSG_1_title_pl ; Nowe Wyzwanie Weekendowe dostƒ?pne
+MSG_1_title_ru ; –?–æ—Å—?—?–ø–Ω–æ –Ω–æ–≤–æ–µ –∏—Å–ø—?—?–∞–Ω–∏–µ –≤—?—?–æ–¥–Ω–æ–≥–æ –¥–Ω—è
+MSG_1_trackingId ; 150
+MSG_1_type ; 8

@@ -1,0 +1,85 @@
+#Main Settings
+IP=127.0.0.1
+RedirectIP=127.0.0.1
+TargetIP  =92.52.77.245
+LogLevel  =0
+NATType   =4
+TimeOutMs =60000
+RWTimeout =100
+AutoDeleteLogs=1
+
+#Change the currently working server-side coalesced and TLK here
+LIVE_BINI=ME3BINI.bin
+LIVE_TLK=ME3TLK.tlk
+
+#Float - Example: 0.5 -> -1% on each region after two days from last update
+GaW_ReadinessDecayRatePerDay=0
+
+GaW_EnablePromotions=True
+
+AlwaysSkipHostsCheck=False
+
+#OriginDummy
+OriginName=OriginPlayer
+OriginPID=0x12345678
+OriginUID=0x12345678
+
+#Redirector Packet
+REDIADDR = 0x0
+REDIHOST = 383933-gosprapp396.ea.com
+REDIPORT = 0x378B
+REDISECU = 0x0
+REDIXDNS = 0x0
+
+#Server_Boot_01
+ANON  =0x0
+ASRC  =303107
+CIDS  ={1} {25} {4} {28} {7} {9} {63490} {30720} {15} {30721} {30722} {30723} {30725} {30726} {2000} 
+BOOTCONF ={pingPeriod ; 15s}{voipHeadsetUpdateRate ; 1000}{xlspConnectionIdleTimeout ; 300}
+INST  =masseffect-3-pc
+MINR  =0x0
+NASP  =cem_ea_id
+PLAT  =pc
+BOOTPSA0 =gossjcprod-qos01.ea.com
+BOOTPSP0 =0x445E
+BOOTSNA0 =prod-sjc
+LNP   =0xA
+LTPS  ={ea-sjc}{rs-iad}{rs-lhr}
+BOOTPSA1 =gossjcprod-qos01.ea.com
+BOOTPSP1 =0x445E
+BOOTSNA1 =prod-sjc
+BOOTPSA2 =gosiadprod-qos01.ea.com
+BOOTPSP2 =0x445E
+BOOTSNA2 =rs-prod-iad
+BOOTPSA3 =gosgvaprod-qos01.ea.com
+BOOTPSP3 =0x445E
+BOOTSNA3 =rs-prod-lhr
+SVID  =0x45410805
+RSRC  =303107
+SVER  =Blaze 3.15.08.0 (CL# 750727)
+
+#Server_Boot_02
+#PSS
+PSSADRS   =playersyncservice.ea.com
+PSSCSIG   =0x0
+PSSPJID   =303107
+PSSPORT   =0x1BB
+PSSRPRT   =0xF
+PSSTIID   =0x0
+#TELE
+#oldTELEADRS  =159.153.235.32
+TELEADRS  =127.0.0.1
+TELEANON  =0x0
+TELEDISA  =AD,AF,AG,AI,AL,AM,AN,AO,AQ,AR,AS,AW,AX,AZ,BA,BB,BD,BF,BH,BI,BJ,BM,BN,BO,BR,BS,BT,BV,BW,BY,BZ,CC,CD,CF,CG,CI,CK,CL,CM,CN,CO,CR,CU,CV,CX,DJ,DM,DO,DZ,EC,EG,EH,ER,ET,FJ,FK,FM,FO,GA,GD,GE,GF,GG,GH,GI,GL,GM,GN,GP,GQ,GS,GT,GU,GW,GY,HM,HN,HT,ID,IL,IM,IN,IO,IQ,IR,IS,JE,JM,JO,KE,KG,KH,KI,KM,KN,KP,KR,KW,KY,KZ,LA,LB,LC,LI,LK,LR,LS,LY,MA,MC,MD,ME,MG,MH,ML,MM,MN,MO,MP,MQ,MR,MS,MU,MV,MW,MY,MZ,NA,NC,NE,NF,NG,NI,NP,NR,NU,OM,PA,PE,PF,PG,PH,PK,PM,PN,PS,PW,PY,QA,RE,RS,RW,SA,SB,SC,SD,SG,SH,SJ,SL,SM,SN,SO,SR,ST,SV,SY,SZ,TC,TD,TF,TG,TH,TJ,TK,TL,TM,TN,TO,TT,TV,TZ,UA,UG,UM,UY,UZ,VA,VC,VE,VG,VN,VU,WF,WS,YE,YT,ZM,ZW,ZZ
+TELEFILT  =-UION/****
+TELELOC   =0x656E4445
+TELENOOK  =US,CA,MX
+TELEPORT  =0x2704
+TELESDLY  =0x3A98
+TELESPCT  =0x4B
+#TICK
+TICKADRS  =127.0.0.1
+TICKPORT  =0x2327
+TICKSKEY  =823287263,10.23.15.2:8999,masseffect-3-pc,10,50,50,50,50,0,12
+#UROP
+UROPTMOP  =0x1

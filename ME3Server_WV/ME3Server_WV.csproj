@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D06055F-6D7F-4B99-8E20-92D82C3F5715}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ME3Server_WV</RootNamespace>
+    <AssemblyName>ME3Server_WV</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bglobe.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zlibnet, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\zlibnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blaze.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Frontend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend.Designer.cs">
+      <DependentUpon>Frontend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GUI_GameList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_GameList.Designer.cs">
+      <DependentUpon>GUI_GameList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_Log.Designer.cs">
+      <DependentUpon>GUI_Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_PacketEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_PacketEditor.Designer.cs">
+      <DependentUpon>GUI_PacketEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_Player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_Player.Designer.cs">
+      <DependentUpon>GUI_Player.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_PlayerSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_PlayerSettings.Designer.cs">
+      <DependentUpon>GUI_PlayerSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_ProfileCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ProfileCreator.Designer.cs">
+      <DependentUpon>GUI_ProfileCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local_Profile.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ME3Server.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend.resx">
+      <DependentUpon>Frontend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_GameList.resx">
+      <DependentUpon>GUI_GameList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Log.resx">
+      <DependentUpon>GUI_Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_PacketEditor.resx">
+      <DependentUpon>GUI_PacketEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Player.resx">
+      <DependentUpon>GUI_Player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_PlayerSettings.resx">
+      <DependentUpon>GUI_PlayerSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ProfileCreator.resx">
+      <DependentUpon>GUI_ProfileCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="bin\Debug\replay\01_1D_res.bin" />
+    <None Include="bin\Debug\replay\07_0A_01_res.bin" />
+    <None Include="bin\Debug\replay\07_0A_02_res.bin" />
+    <None Include="bin\Debug\replay\07_0A_03_res.bin" />
+    <None Include="bin\Debug\replay\07_0A_04_res.bin" />
+    <None Include="bin\Debug\replay\07_0E_01_res.bin" />
+    <None Include="bin\Debug\replay\07_0E_02_res.bin" />
+    <None Include="bin\Debug\replay\7802_01_res.bin" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bglobe.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ME3PlayerDataEditor\ME3PlayerDataEditor.vbproj">
+      <Project>{1471ff11-4703-467a-8f63-9b01fe6b2ce3}</Project>
+      <Name>ME3PlayerDataEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zlib\zlib.net.csproj">
+      <Project>{0c89b7a2-a218-49e4-b545-5b044a45f977}</Project>
+      <Name>zlib.net</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
