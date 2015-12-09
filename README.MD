@@ -9,7 +9,7 @@ Main features: create match, join match, galactic readiness, promotions, leaderb
 
 Credits & Thanks to:<br/>
 Zlofenix<br/>
-Bstornado<br/>
+Bshtornado<br/>
 Balázs
 
 Example Video by Erik JS:
