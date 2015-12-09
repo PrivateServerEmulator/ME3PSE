@@ -17,5 +17,5 @@ https://www.youtube.com/watch?v=nxAz7HEXpwk
 
 Official topic for support (includes FAQ, **MUST READ**): http://me3explorer.freeforums.org/me3-private-server-lan-download-t1457.html
 
-Alternate repository: [SourceForge](https://sourceforge.net/projects/me3privateserveremulatorlan/)<br/>
+Alternative repository: [SourceForge](https://sourceforge.net/projects/me3privateserveremulatorlan/)<br/>
 Backup - latest release: [Dropbox](https://www.dropbox.com/sh/epdadv2o562uqy6/AACVF75m99YOFeZMFZBRjWTQa?dl=0)
