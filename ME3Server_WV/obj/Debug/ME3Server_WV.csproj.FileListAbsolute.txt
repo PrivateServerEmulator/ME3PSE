@@ -56,3 +56,6 @@ C:\SVN\me3pse\ME3Server_WV\bin\Debug\DESC_REWARDS.TXT
 C:\SVN\me3pse\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.exe
 C:\SVN\me3pse\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.pdb
 C:\SVN\me3pse\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.xml
+C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3Server_WV.exe.config
+C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.exe
+C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.pdb

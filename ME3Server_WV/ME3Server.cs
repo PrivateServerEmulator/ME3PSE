@@ -497,7 +497,8 @@ namespace ME3Server_WV
                     if (clientRequest.Length != 0)
                     {
                         clientStream.Flush();
-                        if (clientRequest[0] == 0)
+                        Blaze.Packet p = Blaze.FetchAllBlazePackets(new MemoryStream(clientRequest))[0];
+                        if (p.Component == 0x5 && p.Command == 0x1)
                         {
                             Logger.Log("[Redirector Handler " + h.ID + "] Send redirection to client => " + ((IPEndPoint)h.tcpClient.Client.RemoteEndPoint).ToString(), Color.Blue);
                             List<Blaze.Tdf> Result = new List<Blaze.Tdf>();
@@ -509,10 +510,14 @@ namespace ME3Server_WV
                             Result.Add(ADDR);
                             Result.Add(Blaze.TdfInteger.Create("SECU", ConvertHex(Config.FindEntry("REDISECU"))));
                             Result.Add(Blaze.TdfInteger.Create("XDNS", ConvertHex(Config.FindEntry("REDIXDNS"))));
-                            byte[] buff = Blaze.CreatePacket(5, 1, 0, 0x1000, 0, Result);
+                            byte[] buff = Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result);
                             clientStream.Write(buff);
                             clientStream.Flush();
                             clientStream.Close();
+                            byte[] filebuff = new byte[buff.Length + clientRequest.Length];
+                            Array.Copy(clientRequest, 0, filebuff, 0, clientRequest.Length);
+                            Array.Copy(buff, 0, filebuff, clientRequest.Length, buff.Length);
+                            File.WriteAllBytes(loc + "logs\\Redirector_" + String.Format(@"{0:yyyy-MM-dd_HHmmss}", DateTime.Now) + "_" + h.ID.ToString("00") + ".bin", filebuff);
                             return;
                         }
                     }
