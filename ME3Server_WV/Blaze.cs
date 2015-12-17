@@ -562,6 +562,77 @@ namespace ME3Server_WV
             res.startswith2 = has2;
             return res;
         }
+        public static string PacketToText(Packet p)
+        {
+            string text = ListToText("", ReadPacketContent(p));
+            return text;
+        }
+        private static string ListToText(string start, List<Tdf> tdflist)
+        {
+            string nl = Environment.NewLine;
+            string res = "";
+            foreach (Tdf item in tdflist)
+            {
+                res += start + item.Label;
+                switch (item.Type)
+                {
+                    case 0x0:
+                        TdfInteger ti = (TdfInteger)item;
+                        res += " => " + ti.Value + " (0x" + ti.Value.ToString("X") + ")" + nl ;
+                        break;
+                    case 0x1:
+                        TdfString ts = (TdfString)item;
+                        res += " => " + ts.Value + nl;
+                        break;
+                    case 0x3:
+                        TdfStruct tsr = (TdfStruct)item;
+                        res += nl + ListToText(start + "_ ", tsr.Values);
+                        break;
+                    case 0x4:
+                        TdfList tl = (TdfList)item;
+                        res += " list: " + tl.SubType + nl;
+                        if (tl.SubType == 0)
+                        {
+                            List<long> listi = (List<long>)tl.List;
+                            res += start + "_ ";
+                            for (int i = 0; i < listi.Count - 1; i++)
+                                res += listi[i] + " 0x" + listi[i].ToString("X8") + "), ";
+                            res += listi[listi.Count - 1] + " (0x" + listi[listi.Count - 1].ToString("X8") + ")" +  nl;
+                        }
+                        else if (tl.SubType == 1)
+                        {
+                            List<string> lists = (List<string>)tl.List;
+                            res += start + "_ ";
+                            for (int i = 0; i < lists.Count; i++)
+                                res += lists[i] + " ";
+                            res += nl;
+                        }
+                        else if (tl.SubType == 3)
+                        {
+                            List<TdfStruct> listst = (List<TdfStruct>)tl.List;
+                            for (int i = 0; i < listst.Count; i++)
+                            {
+                                res += start + "_ Entry #" + i + nl;
+                                res += ListToText("_ _ ", listst[i].Values);
+                            }
+                        }
+                        break;
+                    case 0x6:
+                        TdfUnion tu = (TdfUnion)item;
+                        res += " union: 0x" + tu.UnionType.ToString("X") + nl + ListToText(start + "_ ", new List<Tdf>() { tu.UnionContent });
+                        break;
+                    case 0x9:
+                        TrippleVal tv = ((TdfTrippleVal)item).Value;
+                        res += " => " + tv.v1 + " " + tv.v2 + " " + tv.v3;
+                        res += " (0x" + tv.v1.ToString("X") + " 0x" + tv.v2.ToString("X") + " 0x" + tv.v1.ToString("X") + ")" + nl;
+                        break;
+                    default:
+                        res += nl;
+                        break;
+                }
+            }
+            return res;
+        }
         #endregion        
 
         #region Reading
