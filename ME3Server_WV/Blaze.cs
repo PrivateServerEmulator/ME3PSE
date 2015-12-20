@@ -596,7 +596,7 @@ namespace ME3Server_WV
                             List<long> listi = (List<long>)tl.List;
                             res += start + "_ ";
                             for (int i = 0; i < listi.Count - 1; i++)
-                                res += listi[i] + " 0x" + listi[i].ToString("X8") + "), ";
+                                res += listi[i] + " (0x" + listi[i].ToString("X8") + "), ";
                             res += listi[listi.Count - 1] + " (0x" + listi[listi.Count - 1].ToString("X8") + ")" +  nl;
                         }
                         else if (tl.SubType == 1)
