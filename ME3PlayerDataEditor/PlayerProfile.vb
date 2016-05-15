@@ -300,7 +300,7 @@ Namespace PlayerProfile
             field2_Version2 = Integer.Parse(ClassFields(1))
             field3_Name = ClassFields(2)
             field4_Level = Integer.Parse(ClassFields(3))
-            field5_Exp = Single.Parse(ClassFields(4))
+            field5_Exp = Single.Parse(ClassFields(4), System.Globalization.CultureInfo.InvariantCulture)
             field6_Promotions = Integer.Parse(ClassFields(5))
             Me.Members = New List(Of Integer)
         End Sub
@@ -320,7 +320,7 @@ Namespace PlayerProfile
                 Case CLASS6 : strResult = "class6="
             End Select
             strResult &= field1_Version1 & ";" & field2_Version2 & ";" & field3_Name & ";" & _
-               field4_Level & ";" & field5_Exp.ToString("0.0000") & ";" & field6_Promotions
+               field4_Level & ";" & field5_Exp.ToString("0.0000", System.Globalization.CultureInfo.InvariantCulture) & ";" & field6_Promotions
             Return strResult
         End Function
 
