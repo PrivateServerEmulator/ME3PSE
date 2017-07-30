@@ -36,7 +36,7 @@ namespace ME3Server_WV
                         box.SelectionStart = box.TextLength;
                         box.SelectionLength = 0;
                         box.SelectionColor = c;
-                        if (c == Color.White)
+                        if (c == Color.White || c == Color.Cyan || c == Color.Yellow)
                             box.SelectionBackColor = Color.Black;
                         box.AppendText(s);
                         box.SelectionBackColor = box.BackColor;
