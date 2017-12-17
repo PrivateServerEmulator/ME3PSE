@@ -157,7 +157,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Telemetry Listener] Crashed:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Telemetry Listener] Crashed:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void threadTelemetryHandler(object objs)
@@ -205,7 +205,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Telemetry Handler " + h.ID + "] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Telemetry Handler " + h.ID + "] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static bool SocketConnected(Socket s)
@@ -252,7 +252,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Http Listener] Crashed:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Http Listener] Crashed:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void threadHttpHandler(object objs)
@@ -308,7 +308,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Http Handler] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Http Handler] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void HandleGaW(string request, NetworkStream clientStream)
@@ -408,7 +408,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Tick Listener] Crashed:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Tick Listener] Crashed:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void threadTickHandler(object objs)
@@ -435,7 +435,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Tick Handler " + h.ID + "] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Tick Handler " + h.ID + "] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
 #endregion
@@ -480,7 +480,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Redirector] Crashed:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Redirector] Crashed:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void threadRedirectorClientHandler(object objs)
@@ -525,7 +525,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Redirector Handler " + h.ID + "] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Redirector Handler " + h.ID + "] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
 #endregion
@@ -558,7 +558,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server] Crashed:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server] Crashed:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void threadMainServerClientHandler(object obj)
@@ -674,7 +674,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         private static void ExportUserSettings(Blaze.Packet p)
@@ -717,7 +717,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                Logger.Log("[Record player settings] " + ex.GetType().Name + ": " + ex.Message, Color.Red);
+                Logger.Log("[Record player settings] " + GetExceptionMessage(ex), Color.Red);
             }
         }
         public static void MainServerHandler(Player.PlayerInfo player, byte[] buff)
@@ -840,7 +840,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_1:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_1:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }
@@ -1272,7 +1272,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void HandleComponent_7_Command_A(Player.PlayerInfo player, Blaze.Packet p)
@@ -1311,7 +1311,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:A] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:A] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void HandleComponent_7_Command_E(Player.PlayerInfo player, Blaze.Packet p)
@@ -1380,7 +1380,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:E] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:E] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void HandleComponent_7_Command_12(Player.PlayerInfo player, Blaze.Packet p)
@@ -1399,7 +1399,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:12] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:12] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static void HandleComponent_7_Command_D(Player.PlayerInfo player, Blaze.Packet p)
@@ -1498,7 +1498,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:D] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7:D] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
         }
         public static List<Tuple<string, long, int, int>> GetLeaderboard(int type)
@@ -1578,7 +1578,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_9:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_9:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }        
         }
         public static void HandleComponent_9_Command_1(Player.PlayerInfo player, Blaze.Packet p)
@@ -1722,7 +1722,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_F:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_F:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }
@@ -1775,7 +1775,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_19:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_19:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }
@@ -1803,7 +1803,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_1C:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_1C:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }
@@ -1821,7 +1821,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7802:*] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7802:*] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }        
@@ -1855,7 +1855,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7802:14] Error:\n" + e.GetType().Name + ": " + e.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][Handler_7802:14] Error:\n" + GetExceptionMessage(e), Color.Red);
             }
 
         }      
@@ -2360,7 +2360,7 @@ namespace ME3Server_WV
             }
             catch(Exception ex)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][CreatePlayerJoinInfoForHost] Error:\n" + ex.GetType().Name + ": " + ex.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][CreatePlayerJoinInfoForHost] Error:\n" + GetExceptionMessage(ex), Color.Red);
             }
         }
         public static byte[] CreateJoiningDedicateServerInfo(GameManager.GameInfo game, Player.PlayerInfo player)
@@ -2512,7 +2512,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][CreateJoiningDedicateServerInfo] Error:\n" + ex.GetType().Name + ": " + ex.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][CreateJoiningDedicateServerInfo] Error:\n" + GetExceptionMessage(ex), Color.Red);
                 return new byte[0];
             }
         }        
@@ -2553,7 +2553,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                Logger.Log("[Main Server Handler " + player.ID + "][CreateMPPlayerInfo] Error:\n" + ex.GetType().Name + ": " + ex.Message, Color.Red);
+                Logger.Log("[Main Server Handler " + player.ID + "][CreateMPPlayerInfo] Error:\n" + GetExceptionMessage(ex), Color.Red);
                 return new byte[0];
             }
         }
@@ -2611,7 +2611,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.Print("ReadContentSSL | " + e.GetType().Name + ": " + e.Message);
+                System.Diagnostics.Debug.Print("ReadContentSSL | " + GetExceptionMessage(e));
                 return res.ToArray();
             }
         }
@@ -2634,7 +2634,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.Print("ReadContent | " + e.GetType().Name + ": " + e.Message);
+                System.Diagnostics.Debug.Print("ReadContent | " + GetExceptionMessage(e));
                 return new byte[0];
             }
         }
@@ -2657,7 +2657,7 @@ namespace ME3Server_WV
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.Print("ReadContentHTTP | " + e.GetType().Name + ": " + e.Message);
+                System.Diagnostics.Debug.Print("ReadContentHTTP | " + GetExceptionMessage(e));
                 return new byte[0];
             }
         }
@@ -2913,7 +2913,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GetListOfPlayerFiles | " + ex.GetType().Name + ": "  + ex.Message);
+                System.Diagnostics.Debug.Print("GetListOfPlayerFiles | " + GetExceptionMessage(ex));
                 return new List<string>();
             }
         }
@@ -2946,6 +2946,23 @@ namespace ME3Server_WV
             Blaze.TdfUnion union = Blaze.TdfUnion.Create(label, 0x02, VALU);
             //Logger.Log(GetStringFromIP(player.INIP.IP) + " " + GetStringFromIP(player.EXIP.IP), Color.Purple);
             return union;
+        }
+        public static string GetExceptionMessage(Exception exception, bool includeStack = false)
+        {
+            string message;
+            message = exception.GetType().FullName + ": " + exception.Message;
+            if (exception is SocketException)
+            {
+                SocketException se = (SocketException)exception;
+                message += "\n" + String.Format("ErrorCode: {0}, NativeErrorCode: {1}, SocketErrorCode: {2}", se.ErrorCode, se.NativeErrorCode, se.SocketErrorCode);
+            }
+            if (exception.InnerException != null)
+            {
+                message += "\n[InnerException] " + exception.InnerException.GetType().FullName + ": " + exception.InnerException.Message;
+            }
+            if (includeStack)
+                message += "\n" + exception.StackTrace;
+            return message;
         }
 #endregion
 
@@ -3101,7 +3118,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GaWGetRatings | " + ex.GetType().Name + ": " + ex.Message);
+                System.Diagnostics.Debug.Print("GaWGetRatings | " + GetExceptionMessage(ex));
                 return ratings;
             }
         }
@@ -3143,7 +3160,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GaWIncreaseRatings | " + ex.GetType().Name + ": " + ex.Message);
+                System.Diagnostics.Debug.Print("GaWIncreaseRatings | " + GetExceptionMessage(ex));
             }
         }
         private static string GaWCreateHttpHeader(int contentLenght, int type = 200)

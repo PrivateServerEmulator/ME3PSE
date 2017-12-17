@@ -74,7 +74,7 @@ namespace ME3Server_WV
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error:\n" + ex.GetType().Name + ": " + ex.Message);
+                    MessageBox.Show("Error:\n" + ME3Server.GetExceptionMessage(ex));
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n" + ex.GetType().Name + ": " + ex.Message, "Activate Redirection");
+                MessageBox.Show("Error:\n" + ME3Server.GetExceptionMessage(ex), "Activate Redirection");
             }
         }
 
@@ -132,9 +132,9 @@ namespace ME3Server_WV
             catch (Exception ex)
             {
                 if (bShowMsg)
-                    MessageBox.Show("Error:\n" + ex.GetType().Name + ": " + ex.Message, "Deactivate Redirection");
+                    MessageBox.Show("Error:\n" + ME3Server.GetExceptionMessage(ex), "Deactivate Redirection");
                 else
-                    System.Diagnostics.Debug.Print("DeactivateRedirection | " + ex.GetType().Name + ": " + ex.Message);
+                    System.Diagnostics.Debug.Print("DeactivateRedirection | " + ME3Server.GetExceptionMessage(ex));
             }
         }
 
@@ -161,7 +161,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("IsRedirectionActive | Error:\n" + ex.GetType().Name + ": " + ex.Message);
+                System.Diagnostics.Debug.Print("IsRedirectionActive | Error:\n" + ME3Server.GetExceptionMessage(ex));
                 return false;
             }
         }
@@ -174,7 +174,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n" + ex.GetType().Name + ": " + ex.Message, "Show Content");
+                MessageBox.Show("Error:\n" + ME3Server.GetExceptionMessage(ex), "Show Content");
             }
         }
 
@@ -302,7 +302,7 @@ namespace ME3Server_WV
             }
             catch (Exception ex)
             {
-                Logger.Log("[Import player settings] " + ex.GetType().Name + ": " + ex.Message, Color.Red);
+                Logger.Log("[Import player settings] " + ME3Server.GetExceptionMessage(ex), Color.Red);
             }
         }
 

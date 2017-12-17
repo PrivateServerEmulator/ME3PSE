@@ -12,7 +12,7 @@ namespace ME3Server_WV
     public static class Logger
     {
         private static object _sync = new object();
-        private static string PacketLogFile = "PacketLog_";
+        private static string PacketLogFile = "PacketLog";
         private static string loc = Path.GetDirectoryName(Application.ExecutablePath) + "\\";
         public static string mainlogpath = loc + "logs\\MainServerLog.txt";
         public static RichTextBox box;
