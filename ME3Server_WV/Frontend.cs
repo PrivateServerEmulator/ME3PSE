@@ -33,10 +33,17 @@ namespace ME3Server_WV
             frontend.level5EverythingToolStripMenuItem.Checked = (Logger.LogLevel == 5);
         }
 
+        public static void UpdateMITMMenuState()
+        {
+            frontend.activateToolStripMenuItem.Text = ME3Server.isMITM ? "Deactivate" : "Activate";
+            frontend.recordPlayerSettingsToolStripMenuItem.Enabled = ME3Server.isMITM;
+            frontend.importPlayerSettingsToolStripMenuItem.Enabled = ME3Server.isMITM;
+        }
+
         private void Frontend_Load(object sender, EventArgs e)
         {
             string version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            this.Text = "Mass Effect 3 Private Server by Warranty Voider, build: " + version;
+            this.Text = "ME3 Private Server Emulator by Warranty Voider, build: " + version;
             LogWindow = new GUI_Log();
             PlayerWindow = new GUI_Player();
             GameList = new GUI_GameList();
@@ -196,16 +203,6 @@ namespace ME3Server_WV
             PlayerWindow.BringToFront();
         }
 
-        private void mITMModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ME3Server.isMITM = mITMModeToolStripMenuItem.Checked;
-            Logger.Log("MITM mode = " + ME3Server.isMITM, Color.Black);
-            recordPlayerSettingsToolStripMenuItem.Visible = ME3Server.isMITM;
-            importPlayerSettingsToolStripMenuItem.Visible = ME3Server.isMITM;
-            recordPlayerSettingsToolStripMenuItem.Checked = false;
-            ME3Server.bRecordPlayerSettings = false;
-        }
-
         private void showGameListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GameList.BringToFront();
@@ -311,5 +308,21 @@ namespace ME3Server_WV
             Environment.CurrentDirectory = loc;
             System.Diagnostics.Process.Start("ME3PlayerDataEditor.exe");
         }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ME3Server.isMITM = !ME3Server.isMITM;
+            Logger.Log("MITM mode = " + ME3Server.isMITM, Color.Black);
+            UpdateMITMMenuState();
+            recordPlayerSettingsToolStripMenuItem.Checked = false;
+            ME3Server.bRecordPlayerSettings = false;
+        }
+
+
     }
 }

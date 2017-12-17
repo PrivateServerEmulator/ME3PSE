@@ -63,6 +63,11 @@ namespace ME3Server_WV
                 if (MessageBox.Show(msg, "Startup check", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     Frontend.DeactivateRedirection();
             }
+            if (isMITM)
+            {
+                Logger.Log("Man-in-the-middle (MITM) mode is enabled (command line argument).", Color.Black);
+                Frontend.UpdateMITMMenuState();
+            }
         }
         public static void LoadInitialConfig()
         {

@@ -25,6 +25,7 @@ namespace ME3Server_WV
             if (ME3Server.IsRunningAsAdmin())
             {
                 string[] commandlineargs = System.Environment.GetCommandLineArgs();
+                ME3Server.isMITM = commandlineargs.Contains("-mitm", StringComparer.InvariantCultureIgnoreCase);
                 ME3Server.silentStart = commandlineargs.Contains("-silentstart", StringComparer.InvariantCultureIgnoreCase);
                 ME3Server.silentExit = commandlineargs.Contains("-silentexit", StringComparer.InvariantCultureIgnoreCase);
                 if (commandlineargs.Contains("-deactivateonly", StringComparer.InvariantCultureIgnoreCase))
