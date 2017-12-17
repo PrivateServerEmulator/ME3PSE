@@ -59,3 +59,6 @@ C:\SVN\me3pse\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.xml
 C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3Server_WV.exe.config
 C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.exe
 C:\Users\ERIKJS\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.pdb
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3Server_WV.exe.config
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.exe
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.pdb

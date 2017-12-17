@@ -37,7 +37,7 @@ namespace ME3Server_WV
                 File.Delete(Logger.mainlogpath);
             Logger.Log("ME3 Private Server Emulator by Warranty Voider", Color.DarkBlue);
             Logger.Log("Program: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(), Color.DarkBlue);
-            Logger.Log("System: " + System.Diagnostics.FileVersionInfo.GetVersionInfo(Frontend.sysdir + "kernel32.dll").FileVersion, Color.DarkBlue);
+            Logger.Log("OSVersion: " + Environment.OSVersion.ToString(), Color.DarkBlue);
             Logger.Log("Starting...", Color.Black);
             Config.Load();
             Logger.DeleteLogs();
