@@ -31,6 +31,7 @@ namespace ME3Server_WV
         public static List<string> importValues = null;
         public static bool silentStart;
         public static bool silentExit;
+        public static bool ignoreTLKLangCode = false;
         public static void Start()
         {
             if (File.Exists(Logger.mainlogpath))
@@ -85,7 +86,11 @@ namespace ME3Server_WV
             Logger.Log(" Redirect IP = " + Config.FindEntry("RedirectIP"), Color.Black);
             Logger.Log(" MITM Target IP = " + Config.FindEntry("TargetIP"), Color.Black);
             Logger.Log(" Live BINI = " + GetLiveBINI().Substring(loc.Length), Color.Black);
-            Logger.Log(" Live TLK = " + GetLiveTLK().Substring(loc.Length), Color.Black);
+            ignoreTLKLangCode = Convert.ToBoolean(Config.FindEntry("IgnoreTLKLanguageCode"));
+            if(ignoreTLKLangCode)
+                Logger.Log(" Live TLK = " + GetLiveTLK().Substring(loc.Length) + " (ignoring language code)", Color.Black);
+            else
+                Logger.Log(" Default TLK = " + GetLiveTLK().Substring(loc.Length), Color.Black);
             Logger.Log("Configuration loaded", Color.Black);
         }
         public static void Stop()
@@ -1608,6 +1613,11 @@ namespace ME3Server_WV
                     string[] lines;
                     List<string> List1, List2;
                     List<Blaze.Tdf> Result = new List<Blaze.Tdf>();
+                    if (command.StartsWith("ME3_LIVE_TLK_PC_"))
+                    {
+                        HandleLiveTLK(player, p, command.Substring(16));
+                        return;
+                    }
                     switch (command)
                     {
                         case "ME3_DATA":
@@ -1678,19 +1688,30 @@ namespace ME3Server_WV
                             Result.Add(Blaze.TdfDoubleList.Create("CONF", 1, 1, List1, List2, List1.Count));
                             SendPacket(player, Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result));
                             break;
-                        case "ME3_LIVE_TLK_PC_en":
-                            List1 = new List<string>();
-                            List2 = new List<string>();
-                            CreateBase64StringsFromTLK(GetLiveTLK(), out List1, out List2);
-                            Result.Add(Blaze.TdfDoubleList.Create("CONF", 1, 1, List1, List2, List1.Count));
-                            SendPacket(player, Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result));
-                            break;
+                        //case "ME3_LIVE_TLK_PC_en":
+                        //    List1 = new List<string>();
+                        //    List2 = new List<string>();
+                        //    CreateBase64StringsFromTLK(GetLiveTLK(), out List1, out List2);
+                        //    Result.Add(Blaze.TdfDoubleList.Create("CONF", 1, 1, List1, List2, List1.Count));
+                        //    SendPacket(player, Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result));
+                        //    break;
                         default:
                             SendPacket(player, Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result));
                             break;
                     }
                 }
             }
+        }
+        public static void HandleLiveTLK(Player.PlayerInfo player, Blaze.Packet p, string lang)
+        {
+            //Logger.Log("TLK file requested | language: " + lang, Color.White);
+            List<string> List1 = new List<string>();
+            List<string> List2 = new List<string>();
+            List<Blaze.Tdf> Result = new List<Blaze.Tdf>();
+            string tlkfile = ignoreTLKLangCode ? GetLiveTLK() : GetLiveTLK(lang);
+            CreateBase64StringsFromTLK(tlkfile, out List1, out List2);
+            Result.Add(Blaze.TdfDoubleList.Create("CONF", 1, 1, List1, List2, List1.Count));
+            SendPacket(player, Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, Result));
         }
         public static void HandleComponent_9_Command_C(Player.PlayerInfo player, Blaze.Packet p)
         {
@@ -2896,6 +2917,18 @@ namespace ME3Server_WV
                 return loc + "conf\\" + live_tlk;
             }
             return loc + "conf\\ME3TLK.tlk";
+        }
+        public static string GetLiveTLK(string language)
+        {
+            string fileTLK = loc + "conf\\ME3TLK_" + language + ".tlk";
+            if (File.Exists(fileTLK))
+            {
+                return fileTLK;
+            }
+            else
+            {
+                return GetLiveTLK();
+            }
         }
         public static List<string> GetListOfPlayerFiles()
         {

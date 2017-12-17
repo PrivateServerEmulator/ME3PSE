@@ -8,9 +8,14 @@ TimeOutMs =60000
 RWTimeout =100
 AutoDeleteLogs=1
 
-#Change the currently working server-side coalesced and TLK here
+#Change the currently working server-side coalesced here
 LIVE_BINI=ME3BINI.bin
+
+#TLK file is determined by language code sent by the game (ME3TLK_«code».tlk)
+#If the requested language-specific file is missing, then this setting will be used:
 LIVE_TLK=ME3TLK.tlk
+
+IgnoreTLKLanguageCode=False
 
 #Float - Example: 0.5 -> -1% on each region after two days from last update
 GaW_ReadinessDecayRatePerDay=0
