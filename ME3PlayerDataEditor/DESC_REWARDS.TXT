@@ -10,6 +10,8 @@
 #222=Asari Scientist
 #-2=Second Separator
 #Official BioWare titles start here
+154=BioWare (originally intended for staff only)
+-3=Third Separator
 #General
 100=Best of the Best (Mass Effect)
 207=Best of the Best (Mass Effect) [alt]
