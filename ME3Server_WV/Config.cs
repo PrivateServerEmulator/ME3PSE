@@ -63,29 +63,16 @@ namespace ME3Server_WV
             }
         }
 
-        public static bool AlwaysSkipHostsCheck()
+        public static bool GetBoolean(string name, bool defaultValue = false)
         {
             try
             {
-                return Boolean.Parse(FindEntry("AlwaysSkipHostsCheck"));
+                return Boolean.Parse(FindEntry(name));
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("AlwaysSkipHostsCheck | " + ex.GetType().Name + ex.Message);
-                return false;
-            }
-        }
-
-        public static bool PromotionsEnabled()
-        {
-            try
-            {
-                return Boolean.Parse(FindEntry("GaW_EnablePromotions"));
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print("PromotionsEnabled | " + ex.GetType().Name + ex.Message);
-                return true;
+                System.Diagnostics.Debug.Print("GetBoolean (" + name + ") | " + ex.GetType().Name + ex.Message);
+                return defaultValue;
             }
         }
 

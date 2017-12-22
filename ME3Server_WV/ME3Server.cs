@@ -57,7 +57,7 @@ namespace ME3Server_WV
             Application.DoEvents();
             tMainServer = new Thread(threadMainServerListener);
             tMainServer.Start();
-            if (!Config.AlwaysSkipHostsCheck() && !silentStart && Frontend.IsRedirectionActive())
+            if (!Config.GetBoolean("AlwaysSkipHostsCheck") && !silentStart && Frontend.IsRedirectionActive())
             {
                 string msg = "PSE has detected valid redirection entries in the system's hosts file.\n\n";
                 msg += "Would you like to deactivate redirection now?";
@@ -86,7 +86,7 @@ namespace ME3Server_WV
             Logger.Log(" Redirect IP = " + Config.FindEntry("RedirectIP"), Color.Black);
             Logger.Log(" MITM Target IP = " + Config.FindEntry("TargetIP"), Color.Black);
             Logger.Log(" Live BINI = " + GetLiveBINI().Substring(loc.Length), Color.Black);
-            ignoreTLKLangCode = Convert.ToBoolean(Config.FindEntry("IgnoreTLKLanguageCode"));
+            ignoreTLKLangCode = Config.GetBoolean("IgnoreTLKLanguageCode");
             if(ignoreTLKLangCode)
                 Logger.Log(" Live TLK = " + GetLiveTLK().Substring(loc.Length) + " (ignoring language code)", Color.Black);
             else
@@ -121,7 +121,7 @@ namespace ME3Server_WV
                 TickListener.Stop();
                 tTick.Abort();
             }
-            if (!Config.AlwaysSkipHostsCheck() && !silentExit && Frontend.IsRedirectionActive())
+            if (!Config.GetBoolean("AlwaysSkipHostsCheck") && !silentExit && Frontend.IsRedirectionActive())
             {
                 string msg = "You're leaving PSE, but there are valid redirection entries in the system's hosts file.\n\n";
                 msg += "Would you like to deactivate redirection before exiting?";
@@ -3086,7 +3086,7 @@ namespace ME3Server_WV
             if (targetPlayer != null)
             {
                 playername = targetPlayer.Name;
-                if (Config.PromotionsEnabled())
+                if (Config.GetBoolean("GaW_EnablePromotions", true))
                 {
                     ME3MP_Profile profile = ME3MP_Profile.InitializeFromFile(targetPlayer.pathtoprofile);
                     if (profile != null)
