@@ -2985,10 +2985,10 @@ namespace ME3Server_WV
             //Logger.Log(GetStringFromIP(player.INIP.IP) + " " + GetStringFromIP(player.EXIP.IP), Color.Purple);
             return union;
         }
-        public static string GetExceptionMessage(Exception exception, bool includeStack = false)
+        public static string GetExceptionMessage(Exception exception, int innerLevel = 0)
         {
             string message;
-            message = exception.GetType().FullName + ": " + exception.Message;
+            message = new string('>', innerLevel) + exception.GetType().FullName + ": " + exception.Message;
             if (exception is SocketException)
             {
                 SocketException se = (SocketException)exception;
@@ -2996,10 +2996,8 @@ namespace ME3Server_WV
             }
             if (exception.InnerException != null)
             {
-                message += "\n[InnerException] " + exception.InnerException.GetType().FullName + ": " + exception.InnerException.Message;
+                message += "\n[InnerException] " + GetExceptionMessage(exception.InnerException, innerLevel + 1);
             }
-            if (includeStack)
-                message += "\n" + exception.StackTrace;
             return message;
         }
 #endregion
