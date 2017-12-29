@@ -1109,73 +1109,244 @@ namespace ME3Server_WV
         #region Describers
         public static string PacketToDescriber(Blaze.Packet p)
         {
-            string t = p.Command.ToString("X");
-            string t2 = p.Component.ToString("X");
-            string[] lines = ComponentNames.Split(',');
-            string cname = "";
-            foreach (string line in lines)
+            string desc1_component = p.Component.ToString("X4");
+            string desc2_command = p.Command.ToString("X4");
+            if (Components.ContainsKey(p.Component))
             {
-                string[] parts = line.Split('=');
-                if (parts.Length == 2 && parts[1] == t2)
+                desc1_component = Components[p.Component];
+                uint commandKey = (uint)(p.Component << 16) + p.Command;
+                if (Commands.ContainsKey(commandKey))
                 {
-                    cname = parts[0];
-                    break;
+                    desc2_command = Commands[commandKey];
                 }
             }
-            switch (p.Component)
-            {
-                case 0x1:
-                    for (int i = 0; i < DescComponent1.Length / 2; i++)
-                        if (DescComponent1[i * 2] == t)
-                            return cname + " : " + DescComponent1[i * 2 + 1];
-                    break;
-                case 0x4:
-                    for (int i = 0; i < DescComponent4.Length / 2; i++)
-                        if (DescComponent4[i * 2] == t)
-                            return cname + " : " + DescComponent4[i * 2 + 1];
-                    break;
-                case 0x7:
-                    for (int i = 0; i < DescComponent7.Length / 2; i++)
-                        if (DescComponent7[i * 2] == t)
-                            return cname + " : " + DescComponent7[i * 2 + 1];
-                    break;
-                case 0x9:
-                    for (int i = 0; i < DescComponent9.Length / 2; i++)
-                        if (DescComponent9[i * 2] == t)
-                            return cname + " : " + DescComponent9[i * 2 + 1];
-                    break;
-                case 0xF:
-                    for (int i = 0; i < DescComponentF.Length / 2; i++)
-                        if (DescComponentF[i * 2] == t)
-                            return cname + " : " + DescComponentF[i * 2 + 1];
-                    break;
-                case 0x19:
-                    for (int i = 0; i < DescComponent19.Length / 2; i++)
-                        if (DescComponent19[i * 2] == t)
-                            return cname + " : " + DescComponent19[i * 2 + 1];
-                    break;
-                case 0x1C:
-                    for (int i = 0; i < DescComponent1C.Length / 2; i++)
-                        if (DescComponent1C[i * 2] == t)
-                            return cname + " : " + DescComponent1C[i * 2 + 1];
-                    break;
-                case 0x7802:
-                    for (int i = 0; i < DescComponent7802.Length / 2; i++)
-                        if (DescComponent7802[i * 2] == t)
-                            return cname + " : " + DescComponent7802[i * 2 + 1];
-                    break;
-            }
-            return cname + " : " + p.Command.ToString("X");
+            return desc1_component + " : " + desc2_command;
         }
-        public static string ComponentNames = "Authentication Component=1,Example Component=3,Game Manager Component=4,Redirector Component=5,Play Groups Component=6,Stats Component=7,Util Component=9,Census Data Component=A,Clubs Component=B,Game Report Lagacy Component=C,League Component=D,Mail Component=E,Messaging Component=F,Locker Component=14,Rooms Component=15,Tournaments Component=17,Commerce Info Component=18,Association Lists Component=19,GPS Content Controller Component=1B,Game Reporting Component=1C,Dynamic Filter Component=7D0,RSP Component=801,User Sessions Component=7802";
-        public static string[] DescComponent1 = { "A", "createAccount", "14", "updateAccount", "1C", "updateParentalEmail", "1D", "listUserEntitlements2", "1E", "getAccount", "1F", "grantEntitlement", "20", "listEntitlements", "21", "hasEntitlement", "22", "getUseCount", "23", "decrementUseCount", "24", "getAuthToken", "25", "getHandoffToken", "26", "getPasswordRules", "27", "grantEntitlement2", "28", "login", "29", "acceptTos", "2A", "getTosInfo", "2B", "modifyEntitlement2", "2C", "consumecode", "2D", "passwordForgot", "2E", "getTermsAndConditionsContent", "2F", "getPrivacyPolicyContent", "30", "listPersonaEntitlements2", "32", "silentLogin", "33", "checkAgeReq", "34", "getOptIn", "35", "enableOptIn", "36", "disableOptIn", "3C", "expressLogin", "46", "logout", "50", "createPersona", "5A", "getPersona", "64", "listPersonas", "6E", "loginPersona", "78", "logoutPersona", "8C", "deletePersona", "8D", "disablePersona", "8F", "listDeviceAccounts", "96", "xboxCreateAccount", "98", "originLogin", "A0", "xboxAssociateAccount", "AA", "xboxLogin", "B4", "ps3CreateAccount", "BE", "ps3AssociateAccount", "C8", "ps3Login", "D2", "validateSessionKey", "E6", "createWalUserSession", "F1", "acceptLegalDocs", "F2", "getLegalDocsInfo", "F6", "getTermsOfServiceContent", "12C", "deviceLoginGuest" };
-        public static string[] DescComponent4 = { "1", "createGame", "2", "destroyGame", "3", "advanceGameState", "4", "setGameSettings", "5", "setPlayerCapacity", "6", "setPresenceMode", "7", "setGameAttributes", "8", "setPlayerAttributes", "9", "joinGame", "B", "removePlayer", "D", "startMatchmaking", "E", "cancelMatchmaking", "F", "finalizeGameCreation", "11", "listGames", "12", "setPlayerCustomData", "13", "replayGame", "14", "returnDedicatedServerToPool", "15", "joinGameByGroup", "16", "leaveGameByGroup", "17", "migrateGame", "18", "updateGameHostMigrationStatus", "19", "resetDedicatedServer", "1A", "updateGameSession", "1B", "banPlayer", "1D", "updateMeshConnection", "1F", "removePlayerFromBannedList", "20", "clearBannedList", "21", "getBannedList", "26", "addQueuedPlayerToGame", "27", "updateGameName", "28", "ejectHost", "64", "getGameListSnapshot", "65", "getGameListSubscription", "66", "destroyGameList", "67", "getFullGameData", "68", "getMatchmakingConfig", "69", "getGameDataFromId", "6A", "addAdminPlayer", "6B", "removeAdminPlayer", "6C", "setPlayerTeam", "6D", "changeGameTeamId", "6E", "migrateAdminPlayer", "6F", "getUserSetGameListSubscription", "70", "swapPlayersTeam", "96", "registerDynamicDedicatedServerCreator", "97", "unregisterDynamicDedicatedServerCreator" };
-        public static string[] DescComponent7 = { "1", "getStatDescs", "2", "getStats", "3", "getStatGroupList", "4", "getStatGroup", "5", "getStatsByGroup", "6", "getDateRange", "7", "getEntityCount", "A", "getLeaderboardGroup", "B", "getLeaderboardFolderGroup", "C", "getLeaderboard", "D", "getCenteredLeaderboard", "E", "getFilteredLeaderboard", "F", "getKeyScopesMap", "10", "getStatsByGroupAsync", "11", "getLeaderboardTreeAsync", "12", "getLeaderboardEntityCount", "13", "getStatCategoryList", "14", "getPeriodIds", "15", "getLeaderboardRaw", "16", "getCenteredLeaderboardRaw", "17", "getFilteredLeaderboardRaw", "18", "changeKeyscopeValue" };
-        public static string[] DescComponent9 = { "1", "fetchClientConfig", "2", "ping", "3", "setClientData", "4", "localizeStrings", "5", "getTelemetryServer", "6", "getTickerServer", "7", "preAuth", "8", "postAuth", "A", "userSettingsLoad", "B", "userSettingsSave", "C", "userSettingsLoadAll", "E", "deleteUserSettings", "14", "filterForProfanity", "15", "fetchQosConfig", "16", "setClientMetrics", "17", "setConnectionState", "18", "getPssConfig", "19", "getUserOptions", "1A", "setUserOptions", "1B", "suspendUserPing" };
-        public static string[] DescComponentF = { "1", "sendMessage", "2", "fetchMessages", "3", "purgeMessages", "4", "touchMessages", "5", "getMessages" };
-        public static string[] DescComponent19 = { "1", "addUsersToList", "2", "removeUsersFromList", "3", "clearLists", "4", "setUsersToList", "5", "getListForUser", "6", "getLists", "7", "subscribeToLists", "8", "unsubscribeFromLists", "9", "getConfigListsInfo" };
-        public static string[] DescComponent1C = { "1", "submitGameReport", "2", "submitOfflineGameReport", "3", "submitGameEvents", "4", "getGameReportQuery", "5", "getGameReportQueriesList", "6", "getGameReports", "7", "getGameReportView", "8", "getGameReportViewInfo", "9", "getGameReportViewInfoList", "A", "getGameReportTypes", "B", "updateMetric", "C", "getGameReportColumnInfo", "D", "getGameReportColumnValues", "64", "submitTrustedMidGameReport", "65", "submitTrustedEndGameReport" };
-        public static string[] DescComponent7802 = { "3", "fetchExtendedData", "5", "updateExtendedDataAttribute", "8", "updateHardwareFlags", "C", "lookupUser", "D", "lookupUsers", "E", "lookupUsersByPrefix", "14", "updateNetworkInfo", "17", "lookupUserGeoIPData", "18", "overrideUserGeoIPData", "19", "updateUserSessionClientData", "1A", "setUserInfoAttribute", "1B", "resetUserGeoIPData", "20", "lookupUserSessionId", "21", "fetchLastLocaleUsedAndAuthError", "22", "fetchUserFirstLastAuthTime", "23", "resumeSession" };
+
+        public static Dictionary<ushort, string> Components = new Dictionary<ushort, string>()
+        {
+            { 0x1, "Authentication Component" },
+            { 0x3, "Example Component" },
+            { 0x4, "Game Manager Component" },
+            { 0x5, "Redirector Component" },
+            { 0x6, "Play Groups Component" },
+            { 0x7, "Stats Component" },
+            { 0x9, "Util Component" },
+            { 0xA, "Census Data Component" },
+            { 0xB, "Clubs Component" },
+            { 0xC, "Game Report Lagacy Component" },
+            { 0xD, "League Component" },
+            { 0xE, "Mail Component" },
+            { 0xF, "Messaging Component" },
+            { 0x14, "Locker Component" },
+            { 0x15, "Rooms Component" },
+            { 0x17, "Tournaments Component" },
+            { 0x18, "Commerce Info Component" },
+            { 0x19, "Association Lists Component" },
+            { 0x1B, "GPS Content Controller Component" },
+            { 0x1C, "Game Reporting Component" },
+            { 0x7D0, "Dynamic Filter Component" },
+            { 0x801, "RSP Component" },
+            { 0x7802, "User Sessions Component" }
+        };
+
+        public static Dictionary<uint, string> Commands = new Dictionary<uint, string>()
+        {
+            //Authentication Component
+            { 0x0001000A, "createAccount" },
+            { 0x00010014, "updateAccount" },
+            { 0x0001001C, "updateParentalEmail" },
+            { 0x0001001D, "listUserEntitlements2" },
+            { 0x0001001E, "getAccount" },
+            { 0x0001001F, "grantEntitlement" },
+            { 0x00010020, "listEntitlements" },
+            { 0x00010021, "hasEntitlement" },
+            { 0x00010022, "getUseCount" },
+            { 0x00010023, "decrementUseCount" },
+            { 0x00010024, "getAuthToken" },
+            { 0x00010025, "getHandoffToken" },
+            { 0x00010026, "getPasswordRules" },
+            { 0x00010027, "grantEntitlement2" },
+            { 0x00010028, "login" },
+            { 0x00010029, "acceptTos" },
+            { 0x0001002A, "getTosInfo" },
+            { 0x0001002B, "modifyEntitlement2" },
+            { 0x0001002C, "consumecode" },
+            { 0x0001002D, "passwordForgot" },
+            { 0x0001002E, "getTermsAndConditionsContent" },
+            { 0x0001002F, "getPrivacyPolicyContent" },
+            { 0x00010030, "listPersonaEntitlements2" },
+            { 0x00010032, "silentLogin" },
+            { 0x00010033, "checkAgeReq" },
+            { 0x00010034, "getOptIn" },
+            { 0x00010035, "enableOptIn" },
+            { 0x00010036, "disableOptIn" },
+            { 0x0001003C, "expressLogin" },
+            { 0x00010046, "logout" },
+            { 0x00010050, "createPersona" },
+            { 0x0001005A, "getPersona" },
+            { 0x00010064, "listPersonas" },
+            { 0x0001006E, "loginPersona" },
+            { 0x00010078, "logoutPersona" },
+            { 0x0001008C, "deletePersona" },
+            { 0x0001008D, "disablePersona" },
+            { 0x0001008F, "listDeviceAccounts" },
+            { 0x00010096, "xboxCreateAccount" },
+            { 0x00010098, "originLogin" },
+            { 0x000100A0, "xboxAssociateAccount" },
+            { 0x000100AA, "xboxLogin" },
+            { 0x000100B4, "ps3CreateAccount" },
+            { 0x000100BE, "ps3AssociateAccount" },
+            { 0x000100C8, "ps3Login" },
+            { 0x000100D2, "validateSessionKey" },
+            { 0x000100E6, "createWalUserSession" },
+            { 0x000100F1, "acceptLegalDocs" },
+            { 0x000100F2, "getLegalDocsInfo" },
+            { 0x000100F6, "getTermsOfServiceContent" },
+            { 0x0001012C, "deviceLoginGuest" },
+            // Game Manager Component
+            { 0x00040001, "createGame" },
+            { 0x00040002, "destroyGame" },
+            { 0x00040003, "advanceGameState" },
+            { 0x00040004, "setGameSettings" },
+            { 0x00040005, "setPlayerCapacity" },
+            { 0x00040006, "setPresenceMode" },
+            { 0x00040007, "setGameAttributes" },
+            { 0x00040008, "setPlayerAttributes" },
+            { 0x00040009, "joinGame" },
+            { 0x0004000B, "removePlayer" },
+            { 0x0004000D, "startMatchmaking" },
+            { 0x0004000E, "cancelMatchmaking" },
+            { 0x0004000F, "finalizeGameCreation" },
+            { 0x00040011, "listGames" },
+            { 0x00040012, "setPlayerCustomData" },
+            { 0x00040013, "replayGame" },
+            { 0x00040014, "returnDedicatedServerToPool" },
+            { 0x00040015, "joinGameByGroup" },
+            { 0x00040016, "leaveGameByGroup" },
+            { 0x00040017, "migrateGame" },
+            { 0x00040018, "updateGameHostMigrationStatus" },
+            { 0x00040019, "resetDedicatedServer" },
+            { 0x0004001A, "updateGameSession" },
+            { 0x0004001B, "banPlayer" },
+            { 0x0004001D, "updateMeshConnection" },
+            { 0x0004001F, "removePlayerFromBannedList" },
+            { 0x00040020, "clearBannedList" },
+            { 0x00040021, "getBannedList" },
+            { 0x00040026, "addQueuedPlayerToGame" },
+            { 0x00040027, "updateGameName" },
+            { 0x00040028, "ejectHost" },
+            { 0x00040064, "getGameListSnapshot" },
+            { 0x00040065, "getGameListSubscription" },
+            { 0x00040066, "destroyGameList" },
+            { 0x00040067, "getFullGameData" },
+            { 0x00040068, "getMatchmakingConfig" },
+            { 0x00040069, "getGameDataFromId" },
+            { 0x0004006A, "addAdminPlayer" },
+            { 0x0004006B, "removeAdminPlayer" },
+            { 0x0004006C, "setPlayerTeam" },
+            { 0x0004006D, "changeGameTeamId" },
+            { 0x0004006E, "migrateAdminPlayer" },
+            { 0x0004006F, "getUserSetGameListSubscription" },
+            { 0x00040070, "swapPlayersTeam" },
+            { 0x00040096, "registerDynamicDedicatedServerCreator" },
+            { 0x00040097, "unregisterDynamicDedicatedServerCreator" },
+            // Redirector Component
+            { 0x00050001, "getServerInstance" },
+            // Stats Component
+            { 0x00070001, "getStatDescs" },
+            { 0x00070002, "getStats" },
+            { 0x00070003, "getStatGroupList" },
+            { 0x00070004, "getStatGroup" },
+            { 0x00070005, "getStatsByGroup" },
+            { 0x00070006, "getDateRange" },
+            { 0x00070007, "getEntityCount" },
+            { 0x0007000A, "getLeaderboardGroup" },
+            { 0x0007000B, "getLeaderboardFolderGroup" },
+            { 0x0007000C, "getLeaderboard" },
+            { 0x0007000D, "getCenteredLeaderboard" },
+            { 0x0007000E, "getFilteredLeaderboard" },
+            { 0x0007000F, "getKeyScopesMap" },
+            { 0x00070010, "getStatsByGroupAsync" },
+            { 0x00070011, "getLeaderboardTreeAsync" },
+            { 0x00070012, "getLeaderboardEntityCount" },
+            { 0x00070013, "getStatCategoryList" },
+            { 0x00070014, "getPeriodIds" },
+            { 0x00070015, "getLeaderboardRaw" },
+            { 0x00070016, "getCenteredLeaderboardRaw" },
+            { 0x00070017, "getFilteredLeaderboardRaw" },
+            { 0x00070018, "changeKeyscopeValue" },
+            // Util Component
+            { 0x00090001, "fetchClientConfig" },
+            { 0x00090002, "ping" },
+            { 0x00090003, "setClientData" },
+            { 0x00090004, "localizeStrings" },
+            { 0x00090005, "getTelemetryServer" },
+            { 0x00090006, "getTickerServer" },
+            { 0x00090007, "preAuth" },
+            { 0x00090008, "postAuth" },
+            { 0x0009000A, "userSettingsLoad" },
+            { 0x0009000B, "userSettingsSave" },
+            { 0x0009000C, "userSettingsLoadAll" },
+            { 0x0009000E, "deleteUserSettings" },
+            { 0x00090014, "filterForProfanity" },
+            { 0x00090015, "fetchQosConfig" },
+            { 0x00090016, "setClientMetrics" },
+            { 0x00090017, "setConnectionState" },
+            { 0x00090018, "getPssConfig" },
+            { 0x00090019, "getUserOptions" },
+            { 0x0009001A, "setUserOptions" },
+            { 0x0009001B, "suspendUserPing" },
+            // Messaging Component
+            { 0x000F0001, "sendMessage" },
+            { 0x000F0002, "fetchMessages" },
+            { 0x000F0003, "purgeMessages" },
+            { 0x000F0004, "touchMessages" },
+            { 0x000F0005, "getMessages" },
+            // Association Lists Component
+            { 0x00190001, "addUsersToList" },
+            { 0x00190002, "removeUsersFromList" },
+            { 0x00190003, "clearLists" },
+            { 0x00190004, "setUsersToList" },
+            { 0x00190005, "getListForUser" },
+            { 0x00190006, "getLists" },
+            { 0x00190007, "subscribeToLists" },
+            { 0x00190008, "unsubscribeFromLists" },
+            { 0x00190009, "getConfigListsInfo" },
+            // Game Reporting Component
+            { 0x001C0001, "submitGameReport" },
+            { 0x001C0002, "submitOfflineGameReport" },
+            { 0x001C0003, "submitGameEvents" },
+            { 0x001C0004, "getGameReportQuery" },
+            { 0x001C0005, "getGameReportQueriesList" },
+            { 0x001C0006, "getGameReports" },
+            { 0x001C0007, "getGameReportView" },
+            { 0x001C0008, "getGameReportViewInfo" },
+            { 0x001C0009, "getGameReportViewInfoList" },
+            { 0x001C000A, "getGameReportTypes" },
+            { 0x001C000B, "updateMetric" },
+            { 0x001C000C, "getGameReportColumnInfo" },
+            { 0x001C000D, "getGameReportColumnValues" },
+            { 0x001C0064, "submitTrustedMidGameReport" },
+            { 0x001C0065, "submitTrustedEndGameReport" },
+            // User Sessions Component
+            { 0x78020003, "fetchExtendedData" },
+            { 0x78020005, "updateExtendedDataAttribute" },
+            { 0x78020008, "updateHardwareFlags" },
+            { 0x7802000C, "lookupUser" },
+            { 0x7802000D, "lookupUsers" },
+            { 0x7802000E, "lookupUsersByPrefix" },
+            { 0x78020014, "updateNetworkInfo" },
+            { 0x78020017, "lookupUserGeoIPData" },
+            { 0x78020018, "overrideUserGeoIPData" },
+            { 0x78020019, "updateUserSessionClientData" },
+            { 0x7802001A, "setUserInfoAttribute" },
+            { 0x7802001B, "resetUserGeoIPData" },
+            { 0x78020020, "lookupUserSessionId" },
+            { 0x78020021, "fetchLastLocaleUsedAndAuthError" },
+            { 0x78020022, "fetchUserFirstLastAuthTime" },
+            { 0x78020023, "resumeSession" }
+        };
         #endregion
     }
 }
