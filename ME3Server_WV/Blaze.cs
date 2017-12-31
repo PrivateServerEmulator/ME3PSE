@@ -1115,7 +1115,11 @@ namespace ME3Server_WV
             {
                 desc1_component = Components[p.Component];
                 uint commandKey = (uint)(p.Component << 16) + p.Command;
-                if (Commands.ContainsKey(commandKey))
+                if (p.QType == 0x2000 && Notifications.ContainsKey(commandKey))
+                {
+                    desc2_command = Notifications[commandKey];
+                }
+                else if (Commands.ContainsKey(commandKey))
                 {
                     desc2_command = Commands[commandKey];
                 }
@@ -1236,6 +1240,7 @@ namespace ME3Server_WV
             { 0x00040026, "addQueuedPlayerToGame" },
             { 0x00040027, "updateGameName" },
             { 0x00040028, "ejectHost" },
+            { 0x00040050, "*notifyGameUpdated" },
             { 0x00040064, "getGameListSnapshot" },
             { 0x00040065, "getGameListSubscription" },
             { 0x00040066, "destroyGameList" },
@@ -1346,6 +1351,45 @@ namespace ME3Server_WV
             { 0x78020021, "fetchLastLocaleUsedAndAuthError" },
             { 0x78020022, "fetchUserFirstLastAuthTime" },
             { 0x78020023, "resumeSession" }
+        };
+
+        public static Dictionary<uint, string> Notifications = new Dictionary<uint, string>()
+        {
+            // Game Manager Component
+            { 0x0004000A, "NotifyMatchmakingFailed" },
+            { 0x0004000C, "NotifyMatchmakingAsyncStatus" },
+            { 0x0004000F, "NotifyGameCreated" },
+            { 0x00040010, "NotifyGameRemoved" },
+            { 0x00040014, "NotifyGameSetup" },
+            { 0x00040015, "NotifyPlayerJoining" },
+            { 0x00040016, "NotifyJoiningPlayerInitiateConnections" },
+            { 0x00040017, "NotifyPlayerJoiningQueue" },
+            { 0x00040018, "NotifyPlayerPromotedFromQueue" },
+            { 0x00040019, "NotifyPlayerClaimingReservation" },
+            { 0x0004001E, "NotifyPlayerJoinCompleted" },
+            { 0x00040028, "NotifyPlayerRemoved" },
+            { 0x0004003C, "NotifyHostMigrationFinished" },
+            { 0x00040046, "NotifyHostMigrationStart" },
+            { 0x00040047, "NotifyPlatformHostInitialized" },
+            { 0x00040050, "NotifyGameAttribChange" },
+            { 0x0004005A, "NotifyPlayerAttribChange" },
+            { 0x0004005F, "NotifyPlayerCustomDataChange" },
+            { 0x00040064, "NotifyGameStateChange" },
+            { 0x0004006E, "NotifyGameSettingsChange" },
+            { 0x0004006F, "NotifyGameCapacityChange" },
+            { 0x00040070, "NotifyGameReset" },
+            { 0x00040071, "NotifyGameReportingIdChange" },
+            { 0x00040073, "NotifyGameSessionUpdated" },
+            { 0x00040074, "NotifyGamePlayerStateChange" },
+            { 0x00040075, "NotifyGamePlayerTeamChange" },
+            { 0x00040076, "NotifyGameTeamIdChange" },
+            { 0x00040077, "NotifyProcessQueue" },
+            { 0x00040078, "NotifyPresenceModeChanged" },
+            { 0x00040079, "NotifyGamePlayerQueuePositionChange" },
+            { 0x000400C9, "NotifyGameListUpdate" },
+            { 0x000400CA, "NotifyAdminListChange" },
+            { 0x000400DC, "NotifyCreateDynamicDedicatedServerGame" },
+            { 0x000400E6, "NotifyGameNameChange" }
         };
         #endregion
     }
