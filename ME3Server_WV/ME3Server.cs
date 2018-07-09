@@ -294,12 +294,15 @@ namespace ME3Server_WV
                             }
                             res = "GET " + get;
                             string filename = Path.GetFileName(get);
-                            if (!File.Exists(loc + "http\\" + filename))
+                            string fullfilename = Path.Combine(loc, "http\\" + filename);
+                            if (!File.Exists(fullfilename))
                             {
-                                Logger.Log("[Http Handler] File not found: " + filename + "\nRequest: " + res, Color.Red);
+                                Logger.Log("[Http Handler] Request failed: " + res + "\nFile not found: " + filename, Color.Red);
+                                HandleGaW_SendResponseToClient(clientStream, CreateHttpHeader(0, 404));
+                                clientStream.Close();
                                 return;
                             }
-                            byte[] resbuff = File.ReadAllBytes(loc + "http\\" + filename);
+                            byte[] resbuff = File.ReadAllBytes(fullfilename);
                             string httpheader = "HTTP/1.1 200 OK\r\nServer: Apache-Coyote/1.1\r\nAccept-Ranges: bytes\r\nETag: W/\"524416-1333666807000\"\r\nLast-Modified: Thu, 05 Apr 2012 23:00:07 GMT\r\nContent-Length: ";
                             httpheader += resbuff.Length + "\r\nDate: Tue, 05 Aug 2014 10:14:13 GMT\r\nConnection: close\r\n\r\n";
                             List<byte> resbuff2 = new List<byte>();
@@ -308,7 +311,7 @@ namespace ME3Server_WV
                             resbuff2.AddRange(resbuff);
                             clientStream.Write(resbuff2.ToArray(), 0, resbuff2.Count);
                             clientStream.Flush();
-                            Logger.Log("[Http Handler] Received Http request : " + res, Color.DarkBlue);
+                            Logger.Log("[Http Handler] Request OK: " + res, Color.DarkBlue);
                             clientStream.Close();
                             return;
                         }
@@ -328,7 +331,7 @@ namespace ME3Server_WV
             if (s.Length < 2)
             {
                 Logger.Log("[Http Handler][GaW] Bad request: " + request, Color.DarkBlue);
-                string badreqResponse = GaWCreateHttpHeader(0, 400);
+                string badreqResponse = CreateHttpHeader(0, 400);
                 HandleGaW_SendResponseToClient(clientStream, badreqResponse);
                 return;
             }
@@ -369,7 +372,7 @@ namespace ME3Server_WV
             else
             {
                 Logger.Log("[Http Handler][GaW] Unsupported request: " + s[0] + "/" + s[1], Color.DarkBlue);
-                string unsupResponse = GaWCreateHttpHeader(0, 501);
+                string unsupResponse = CreateHttpHeader(0, 501);
                 HandleGaW_SendResponseToClient(clientStream, unsupResponse); 
             }
         }
@@ -3059,7 +3062,7 @@ namespace ME3Server_WV
             content += " <termsofserviceuri/>\r\n";
             content += " <tosuri/>\r\n";
             content += "</fulllogin>\r\n";
-            string header = GaWCreateHttpHeader(content.Length);
+            string header = CreateHttpHeader(content.Length);
             return header + content;
         }
         public static string GetResponseGaWRatings(string request, out string playername)
@@ -3114,7 +3117,7 @@ namespace ME3Server_WV
             content += "  <assets>0</assets>\r\n";
             content += " </assets>\r\n";
             content += "</galaxyatwargetratings>\r\n";
-            string header = GaWCreateHttpHeader(content.Length);
+            string header = CreateHttpHeader(content.Length);
             return header + content;
         }
         private static int[] GaWGetRatings(string filename)
@@ -3199,13 +3202,25 @@ namespace ME3Server_WV
                 System.Diagnostics.Debug.Print("GaWIncreaseRatings | " + GetExceptionMessage(ex));
             }
         }
-        private static string GaWCreateHttpHeader(int contentLenght, int type = 200)
+        private static string CreateHttpHeader(int contentLenght, int type = 200)
         {
-            string header = "HTTP/1.1 200 OK\r\n";
-            if (type == 400)
-                header = "HTTP/1.1 400 Bad Request\r\n";
-            else if (type == 501)
-                header = "HTTP/1.1 501 Not Implemented\r\n";
+            string header;
+            switch (type)
+            {
+                case 400:
+                    header = "HTTP/1.1 400 Bad Request\r\n";
+                    break;
+                case 404:
+                    header = "HTTP/1.1 404 Not Found\r\n";
+                    break;
+                case 501:
+                    header = "HTTP/1.1 501 Not Implemented\r\n";
+                    break;
+                case 200:
+                default:
+                    header = "HTTP/1.1 200 OK\r\n";
+                    break;
+            }
             header += "Content-Length: " + contentLenght + "\r\n";
             header += "Content-Type: text/xml;charset=UTF-8\r\n";
             header += "Date: " + DateTime.UtcNow.ToString("r") + "\r\n";
