@@ -18,7 +18,8 @@ https://www.youtube.com/watch?v=nxAz7HEXpwk
 -----------------------------------------------------------
 
 Official support forum: https://me3tweaks.com/forums/viewforum.php?f=10<br/>
-Usage steps/FAQ: https://me3tweaks.com/forums/viewtopic.php?f=10&t=9
+Usage steps/FAQ: https://me3tweaks.com/forums/viewtopic.php?f=10&t=9<br/>
+*The ME3Tweaks forum is read only now - an alternative place will be made available soon.*
 
 -----------------------------------------------------------
 
@@ -27,7 +28,7 @@ Backup - latest release: [Dropbox](https://www.dropbox.com/sh/epdadv2o562uqy6/AA
 
 -----------------------------------------------------------
 
-**BUILT UNDER MICROSOFT VISUAL STUDIO EXPRESS 2015 UPDATE 3.**
+**BUILT UNDER MICROSOFT VISUAL STUDIO COMMUNITY 2019.**
 
 **DESIGNED FOR WINDOWS 7 OR LATER.**
 

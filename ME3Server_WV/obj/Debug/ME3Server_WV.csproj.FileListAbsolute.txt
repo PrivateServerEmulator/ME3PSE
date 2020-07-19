@@ -72,7 +72,6 @@ C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\zlibnet.dll
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.pdb
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.xml
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\zlib.net.pdb
-C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.csprojResolveAssemblyReference.cache
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.Frontend.resources
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.GUI_GameList.resources
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.GUI_Log.resources
@@ -82,3 +81,7 @@ C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.GUI_PlayerSettin
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.GUI_ProfileCreator.resources
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.Properties.Resources.resources
 C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.csproj.GenerateResource.Cache
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\bin\Debug\ME3PlayerDataEditor.exe.config
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.csprojAssemblyReference.cache
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.csproj.CoreCompileInputs.cache
+C:\Users\Erik\GitHub\ME3PSE\ME3Server_WV\obj\Debug\ME3Server_WV.csproj.CopyComplete
