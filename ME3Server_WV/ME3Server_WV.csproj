@@ -110,6 +110,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SSL3SupportCheck.cs" />
     <EmbeddedResource Include="Frontend.resx">
       <DependentUpon>Frontend.cs</DependentUpon>
     </EmbeddedResource>

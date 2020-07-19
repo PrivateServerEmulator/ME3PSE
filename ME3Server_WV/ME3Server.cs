@@ -43,6 +43,7 @@ namespace ME3Server_WV
             Config.Load();
             Logger.DeleteLogs();
             LoadInitialConfig();
+            PerformSSL3Checks();
             tTick = new Thread(threadTickListener);
             tTick.Start();
             Application.DoEvents();
@@ -93,6 +94,49 @@ namespace ME3Server_WV
                 Logger.Log(" Default TLK = " + GetLiveTLK().Substring(loc.Length), Color.Black);
             Logger.Log("Configuration loaded", Color.Black);
         }
+
+        public static void PerformSSL3Checks()
+        {
+            if (!SSL3SupportCheck.CheckCipherSuites())
+            {
+                if (!silentStart)
+                {
+                    MessageBox.Show("Cipher suites used internally by Mass Effect 3 to communicate with a remote server currently aren't enabled for use by Schannel provider.\n" +
+                        "\nPSE will be unable to accept connections from the game if Schannel is not allowed to use those cipher suites.\n" +
+                        "\nPSE will attempt to enable them right now.", "Cipher suites", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (SSL3SupportCheck.EnableCipherSuites())
+                    Logger.Log("Cipher suites: successfully enabled by PSE.", Color.DarkGreen);
+                else
+                    Logger.Log("Cipher suites: attempt to enable by PSE has failed.", Color.DarkRed);
+            }
+            else
+            {
+                Logger.Log("Cipher suites: verification OK.", Color.Black);
+            }
+
+            var winver = Environment.OSVersion.Version;
+            if (winver.Build < 19041)
+                return;
+
+            int st = SSL3SupportCheck.GetSSL3ServerStatus();
+            if (st == 1)
+            {
+                Logger.Log("SSL3 Server: enabled - registry verification OK.", Color.Black);
+                return;
+            }
+            if (!silentStart)
+            {
+                MessageBox.Show("Current instance of Windows has been detected as being Windows 10 v2004 (build 19041) or later.\n" +
+                  "\nSSL3 server support under Schannel is required by PSE but is currently disabled or missing from Windows registry.\n" +
+                  "\nPSE will attempt to add/change the corresponding registry entry.", "SSL3 server check", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (SSL3SupportCheck.EnableSSL3Server())
+                Logger.Log("SSL3 Server: successfully enabled by PSE.", Color.DarkGreen);
+            else
+                Logger.Log("SSL3 Server: attempt to enable by PSE has failed.", Color.DarkRed);
+        }
+
         public static void Stop()
         {
             exitnow = true;
