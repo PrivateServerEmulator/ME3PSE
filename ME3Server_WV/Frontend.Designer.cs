@@ -38,6 +38,10 @@
             this.mITMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.recordPlayerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importPlayerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patchGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hostsFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,10 +57,6 @@
             this.level3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.level5EverythingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recordPlayerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importPlayerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +130,36 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(187, 6);
             // 
+            // recordPlayerSettingsToolStripMenuItem
+            // 
+            this.recordPlayerSettingsToolStripMenuItem.CheckOnClick = true;
+            this.recordPlayerSettingsToolStripMenuItem.Enabled = false;
+            this.recordPlayerSettingsToolStripMenuItem.Name = "recordPlayerSettingsToolStripMenuItem";
+            this.recordPlayerSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.recordPlayerSettingsToolStripMenuItem.Text = "Record player settings";
+            this.recordPlayerSettingsToolStripMenuItem.Click += new System.EventHandler(this.recordPlayerSettingsToolStripMenuItem_Click);
+            // 
+            // importPlayerSettingsToolStripMenuItem
+            // 
+            this.importPlayerSettingsToolStripMenuItem.Enabled = false;
+            this.importPlayerSettingsToolStripMenuItem.Name = "importPlayerSettingsToolStripMenuItem";
+            this.importPlayerSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.importPlayerSettingsToolStripMenuItem.Text = "Import player settings";
+            this.importPlayerSettingsToolStripMenuItem.Click += new System.EventHandler(this.importPlayerSettingsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(156, 6);
+            // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.restartToolStripMenuItem.Text = "Restart";
+            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
+            // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -140,7 +170,7 @@
             this.deleteLogsToolStripMenuItem,
             this.playerDataEditorToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // patchGameToolStripMenuItem
@@ -244,36 +274,6 @@
             this.level5EverythingToolStripMenuItem.Text = "Level 5 Everything";
             this.level5EverythingToolStripMenuItem.Click += new System.EventHandler(this.level5EverythingToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(156, 6);
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
-            // 
-            // recordPlayerSettingsToolStripMenuItem
-            // 
-            this.recordPlayerSettingsToolStripMenuItem.CheckOnClick = true;
-            this.recordPlayerSettingsToolStripMenuItem.Enabled = false;
-            this.recordPlayerSettingsToolStripMenuItem.Name = "recordPlayerSettingsToolStripMenuItem";
-            this.recordPlayerSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.recordPlayerSettingsToolStripMenuItem.Text = "Record player settings";
-            this.recordPlayerSettingsToolStripMenuItem.Click += new System.EventHandler(this.recordPlayerSettingsToolStripMenuItem_Click);
-            // 
-            // importPlayerSettingsToolStripMenuItem
-            // 
-            this.importPlayerSettingsToolStripMenuItem.Enabled = false;
-            this.importPlayerSettingsToolStripMenuItem.Name = "importPlayerSettingsToolStripMenuItem";
-            this.importPlayerSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.importPlayerSettingsToolStripMenuItem.Text = "Import player settings";
-            this.importPlayerSettingsToolStripMenuItem.Click += new System.EventHandler(this.importPlayerSettingsToolStripMenuItem_Click);
-            // 
             // Frontend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +286,7 @@
             this.Name = "Frontend";
             this.Text = "Frontend";
             this.Load += new System.EventHandler(this.Frontend_Load);
+            this.Shown += new System.EventHandler(this.Frontend_Shown);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

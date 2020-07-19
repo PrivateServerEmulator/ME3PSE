@@ -19,7 +19,6 @@ namespace ME3Server_WV
         private void GUI_Log_Load(object sender, EventArgs e)
         {
             Logger.box = rtb1;
-            ME3Server.Start();
         }
 
         private void GUI_Log_FormClosing(object sender, FormClosingEventArgs e)

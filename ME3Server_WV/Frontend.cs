@@ -323,6 +323,9 @@ namespace ME3Server_WV
             ME3Server.bRecordPlayerSettings = false;
         }
 
-
+        private void Frontend_Shown(object sender, EventArgs e)
+        {
+            ME3Server.Start();
+        }
     }
 }
