@@ -17,14 +17,13 @@ https://www.youtube.com/watch?v=nxAz7HEXpwk
 
 -----------------------------------------------------------
 
-Official support forum: https://me3tweaks.com/forums/viewforum.php?f=10<br/>
-Usage steps/FAQ: https://me3tweaks.com/forums/viewtopic.php?f=10&t=9<br/>
-*The ME3Tweaks forum is read only now - an alternative place will be made available soon.*
+**Usage steps/FAQ:** https://me3tweaks.com/forums/viewtopic.php?f=10&t=9
+
+**Official Discord server for user support**: https://discord.gg/x9TzEdQ
 
 -----------------------------------------------------------
 
-Alternative repository: [SourceForge](https://sourceforge.net/projects/me3privateserveremulatorlan/)<br/>
-Backup - latest release: [Dropbox](https://www.dropbox.com/sh/epdadv2o562uqy6/AACVF75m99YOFeZMFZBRjWTQa?dl=0)
+**Backup - latest release:** [Dropbox](https://www.dropbox.com/sh/epdadv2o562uqy6/AACVF75m99YOFeZMFZBRjWTQa?dl=0)
 
 -----------------------------------------------------------
 
